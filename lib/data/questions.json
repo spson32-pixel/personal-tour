@@ -1,0 +1,14 @@
+[
+  { "id": 1,  "dimension": "E/I", "options": [{ "scores": { "E": 3 } }, { "scores": { "I": 3 } }] },
+  { "id": 2,  "dimension": "N/S", "options": [{ "scores": { "S": 3 } }, { "scores": { "N": 3 } }] },
+  { "id": 3,  "dimension": "T/F", "options": [{ "scores": { "T": 3 } }, { "scores": { "F": 3 } }] },
+  { "id": 4,  "dimension": "J/P", "options": [{ "scores": { "J": 3 } }, { "scores": { "P": 3 } }] },
+  { "id": 5,  "dimension": "E/I", "options": [{ "scores": { "E": 2 } }, { "scores": { "I": 2 } }] },
+  { "id": 6,  "dimension": "N/S", "options": [{ "scores": { "N": 2 } }, { "scores": { "S": 2 } }] },
+  { "id": 7,  "dimension": "T/F", "options": [{ "scores": { "T": 2 } }, { "scores": { "F": 2 } }] },
+  { "id": 8,  "dimension": "J/P", "options": [{ "scores": { "J": 2 } }, { "scores": { "P": 2 } }] },
+  { "id": 9,  "dimension": "E/I", "options": [{ "scores": { "E": 2 } }, { "scores": { "I": 2 } }] },
+  { "id": 10, "dimension": "N/S", "options": [{ "scores": { "S": 2 } }, { "scores": { "N": 2 } }] },
+  { "id": 11, "dimension": "T/F", "options": [{ "scores": { "T": 2 } }, { "scores": { "F": 2 } }] },
+  { "id": 12, "dimension": "J/P", "options": [{ "scores": { "J": 2 } }, { "scores": { "P": 2 } }] }
+]

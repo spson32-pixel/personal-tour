@@ -1,0 +1,370 @@
+{
+  "nav": {
+    "home": "首页",
+    "test": "开始测试",
+    "result": "查看结果",
+    "cta": "找到适合我的旅行地"
+  },
+  "hero": {
+    "badge": "基于MBTI的个性化旅行地推荐",
+    "titleLine1": "发现",
+    "titleHighlight": "全国旅行地",
+    "titleSuffix": "，",
+    "titleLine3": "专属于你",
+    "description": "通过8种性格维度进行个性化推荐。从全国36个旅行地中，为你精准匹配最适合的旅行体验。",
+    "btnStart": "找到适合我的旅行地",
+    "btnBrowse": "浏览",
+    "imgGyeongbokgung": "景福宫",
+    "imgHaeinsa": "陕川海印寺",
+    "imgJongmyo": "宗庙",
+    "imgSeongsan": "济州城山日出峰"
+  },
+  "stats": {
+    "heritages": "全国旅行地",
+    "mbtiTypes": "MBTI类型",
+    "regions": "地区覆盖"
+  },
+  "howItWorks": {
+    "badge": "使用方法",
+    "titleLine1": "3步发现",
+    "titleLine2": "专属旅行地",
+    "description": "不只是景点推荐——我们分析你的性格与喜好，设计最适合你的旅行体验。",
+    "step1Title": "MBTI性格测试",
+    "step1Desc": "12道专为旅行设计的题目，从E/I、N/S、T/F、J/P四个维度精准分析你的旅行风格。",
+    "step2Title": "AI角色生成",
+    "step2Desc": "OpenAI为你打造专属探索者角色，如\"感性旅行漫步者\"、\"分析型历史探索者\"等个性化标签。",
+    "step3Title": "个性化旅行推荐",
+    "step3Desc": "从36个全国旅行地中推荐最匹配的地点，附带匹配分数。还可通过地区筛选找到心仪的旅行地。"
+  },
+  "featured": {
+    "title": "现在值得关注的旅行地",
+    "description": "率先探索来自全国各地的代表性旅行地",
+    "viewAll": "查看全部",
+    "viewAllMobile": "查看所有旅行地"
+  },
+  "highlights": {
+    "badge": "精选平台",
+    "titleLine1": "不只是推荐，",
+    "titleHighlight": "基于性格的体验设计",
+    "description": "为INFP推荐潇洒园的宁静庭院，为ENTJ推荐南汉山城的战略探索。同一个地方，因性格不同而带来截然不同的体验。",
+    "feature1": "探索风格分析 · 有理由的推荐",
+    "feature2": "历史中心 vs 感性中心双重解说",
+    "feature3": "地区筛选 + MBTI组合搜索",
+    "feature4": "AI生成专属旅行者角色",
+    "btnTest": "立即测试",
+    "card1Title": "战略型文化分析家",
+    "card1Desc": "以系统化路线分析历史价值进行探索。",
+    "card1Sites": "水原华城|宗庙|海印寺",
+    "card2Title": "梦幻历史想象家",
+    "card2Desc": "以感性和想象力与过去对话的安静探索者。",
+    "card2Sites": "潭阳潇洒园|昌德宫后苑|南原广寒楼",
+    "card3Title": "热情旅行爱好者",
+    "card3Desc": "与朋友一起享受充满活力旅行地的社交型旅行者。",
+    "card3Sites": "景福宫|全州韩屋村|济州城山日出峰"
+  },
+  "regions": {
+    "badge": "全国覆盖",
+    "titleLine1": "从首尔到济州，",
+    "titleLine2": "全国8大地区",
+    "description": "按地区探索韩国各地的旅行胜地。",
+    "siteSuffix": "个旅行地",
+    "all": "全国",
+    "seoul": "首尔",
+    "gyeonggi": "京畿·仁川",
+    "gangwon": "江原",
+    "chungcheong": "忠清·大田",
+    "jeolla": "全罗·光州",
+    "gyeongsang": "庆尚·釜山",
+    "jeju": "济州"
+  },
+  "cta": {
+    "badge": "测试约需3分钟",
+    "titleLine1": "立即找到",
+    "titleLine2": "最适合你的旅行地",
+    "description": "从36个全国旅行地中，通过AI精选推荐最符合你性格的旅行地。",
+    "btnStart": "开始测试"
+  },
+  "result": {
+    "personaBadge": "你的旅行探索类型",
+    "analyzing": "AI分析中...",
+    "analyzingDesc": "正在分析你的旅行探索性格...",
+    "shareCopied": "已复制！",
+    "shareBtn": "分享结果",
+    "shareTitle": "我的旅行探索类型",
+    "shareText": "我的旅行探索类型是\"{mbti} · {title}\"！\n在Personal Tour找到属于你的旅行地吧。",
+    "retakeBtn": "重新测试",
+    "groupNT": "分析家型",
+    "groupNF": "外交家型",
+    "groupSJ": "管理者型",
+    "groupSP": "探险家型",
+    "dimensionTitle": "性格分析结果",
+    "dimE": "E 外向",
+    "dimI": "I 内向",
+    "dimN": "N 直觉",
+    "dimS": "S 感知",
+    "dimT": "T 思考",
+    "dimF": "F 情感",
+    "dimJ": "J 计划",
+    "dimP": "P 自由",
+    "styleTitle": "我的探索风格",
+    "courseBadge": "1日推荐路线",
+    "courseTip": "路线提示：",
+    "courseTipText": "本路线按{region}地区内交通便利的顺序规划，建议安排一整天悠闲游览！",
+    "viewOnGoogleMaps": "在谷歌地图上查看",
+    "mapTitle": "1日路线动线",
+    "mapSubtitle": "点击标记可查看照片",
+    "recsTitle": "推荐旅行地",
+    "recsSubAll": "全国",
+    "recsSub": "按{mbti}性格匹配度排序",
+    "retakeLabel": "重新测试",
+    "emptyState": "所选地区暂无相关旅行地。",
+    "viewAllBtn": "查看全国所有旅行地",
+    "ctaTitle": "探索更多旅行地",
+    "ctaDesc": "切换地区筛选，或重新测试，从新角度发现旅行地。",
+    "ctaHome": "返回首页",
+    "ctaRetake": "重新测试"
+  },
+  "footer": {
+    "brand": "Personal Tour",
+    "brandDesc": "基于MBTI性格推荐全国旅行地的AI精选平台",
+    "curation": "全国旅行地精选",
+    "service": "服务",
+    "regions": "按地区探索",
+    "info": "信息",
+    "officialInfo": "基于文化财厅官方信息",
+    "unescoData": "联合国教科文组织世界遗产数据",
+    "aiCuration": "AI个性化精选",
+    "copyright": "© 2025 Personal Tour. All rights reserved.",
+    "forHeritage": "for Korean Travel"
+  },
+  "header": {
+    "lang": "语言",
+    "brand": "Personal Tour",
+    "langLabel": "语言"
+  },
+  "heritage": {
+    "notFound": "找不到旅行地",
+    "notFoundDesc": "找不到您请求的旅行地信息。",
+    "backToResult": "返回结果页面",
+    "tabInfo": "介绍",
+    "tabMBTI": "MBTI分析",
+    "historicalTitle": "历史背景",
+    "emotionalTitle": "感性体验",
+    "mbtiAnalysis": "性格分析（8个维度）",
+    "mbtiTop3": "推荐MBTI TOP 3",
+    "score": "分",
+    "tagsTitle": "标签",
+    "nearbyTitle": "周边旅行地",
+    "infoTitle": "推荐信息",
+    "officialSite": "官方网站",
+    "visitNow": "立即前往",
+    "retakeTest": "重新进行MBTI测试",
+    "featured": "推荐",
+    "recommended": "推荐"
+  },
+  "companion": {
+    "activeGroup": "活跃的朋友们",
+    "activeGroupDesc": "一起分享快乐与活力的旅行",
+    "quietSolo": "安静的独行",
+    "quietSoloDesc": "专属于自己的沉思与冥想时光",
+    "romanticCouple": "感性的恋人",
+    "romanticCoupleDesc": "享受氛围的浪漫旅行",
+    "knowledgeableFriend": "博学的朋友",
+    "knowledgeableFriendDesc": "共同探究历史与文化的旅行",
+    "natureLover": "自然爱好者",
+    "natureLoverDesc": "与自然交融的疗愈旅行",
+    "anyone": "与谁都相处融洽",
+    "anyoneDesc": "可以与各种人共同享受的旅行"
+  },
+  "mbtiReason": {
+    "vibrant": "充满活力的氛围",
+    "serene": "宁静的沉思",
+    "imaginative": "激发想象力",
+    "historical": "历史体验",
+    "analytical": "逻辑分析",
+    "emotional": "感性共鸣",
+    "structured": "系统化路线",
+    "freeExplore": "自由探索",
+    "balanced": "均衡体验",
+    "nature": "亲近自然环境"
+  },
+  "mbti": {
+    "titles": {
+      "ISTJ": "严谨的旅行地探索者",
+      "ISFJ": "细腻的旅行地守护者",
+      "INFJ": "深刻洞察的旅行地探寻者",
+      "INTJ": "战略型旅行地分析家",
+      "ISTP": "实用型旅行地体验者",
+      "ISFP": "感性旅行地欣赏者",
+      "INFP": "梦幻旅行地幻想家",
+      "INTP": "逻辑型旅行地探究者",
+      "ESTP": "活跃的旅行地冒险家",
+      "ESFP": "热情的旅行地爱好者",
+      "ENFP": "自由的旅行地发现者",
+      "ENTP": "创意旅行地解读者",
+      "ESTJ": "高效的旅行地探访者",
+      "ESFJ": "温暖的旅行地分享者",
+      "ENFJ": "给人灵感的旅行地讲述者",
+      "ENTJ": "有远见的旅行地领导者"
+    },
+    "descs": {
+      "ISTJ": "系统地探究历史事实，重视经过验证的信息的探索者",
+      "ISFJ": "静静感受旅行地细腻魅力，尊重传统的参观者",
+      "INFJ": "寻找旅行地深层意义与人文故事的沉思型探索者",
+      "INTJ": "分析旅行地战略价值与长远意义的系统化探究者",
+      "ISTP": "直接体验并把握旅行地实用特性与结构的探险家",
+      "ISFP": "细腻感受旅行地美学与瞬间氛围的艺术家",
+      "INFP": "通过旅行地的感性与想象力创造全新诠释的梦想家",
+      "INTP": "逻辑分析旅行地原理与历史脉络的学者型探究者",
+      "ESTP": "迅速探索各类旅行地并直接体验享受的行动派探索者",
+      "ESFP": "享受旅行地生动魅力并与周围分享的社交型参观者",
+      "ENFP": "发现新旅行地并探索各种可能性的自由旅行者",
+      "ENTP": "对旅行地提出新颖视角与创意诠释的革新者",
+      "ESTJ": "以高效规划路线系统探访旅行地的实践者",
+      "ESFJ": "通过旅行地与他人连结并分享共同价值的分享者",
+      "ENFJ": "通过旅行地故事给他人带来灵感的魅力讲述者",
+      "ENTJ": "以战略眼光体验旅行地愿景与价值的领导型探索者"
+    },
+    "persona": {
+      "INTJ": {
+        "courseTheme": "战略深度探索路线",
+        "explorationStyle": "充分调研后，聚焦核心要点高效探索。善用语音导览或专业解说，加深理解深度。",
+        "recommendationTone": "以逻辑方式解读这个空间蕴含的历史脉络与建筑价值，清晰阐明为何这里是你旅程中不可或缺的一站。"
+      },
+      "INTP": {
+        "courseTheme": "智识探究路线",
+        "explorationStyle": "不受行程束缚，自由探索。有疑问时立刻深入追究，享受构建自己独特解读的过程。",
+        "recommendationTone": "以事实与逻辑为基础，引导你探索这个空间隐藏的多层次意义。"
+      },
+      "ENTJ": {
+        "courseTheme": "愿景中心探索路线",
+        "explorationStyle": "设定明确目标与动线，以核心旅行地为中心快速掌握全局。自主规划路线独立探索才是最优方式。",
+        "recommendationTone": "以旅行地所具备的影响力与现代价值为中心，结合具体战略启示提出建议。"
+      },
+      "ENTP": {
+        "courseTheme": "创意再发现路线",
+        "explorationStyle": "比起固定路线，更享受意外的发现。与其他访客交流，获得截然不同的视角也是极好的探索方式。",
+        "recommendationTone": "用与众不同的有趣视角和隐藏故事激发你的好奇心，带来重新审视这个空间的乐趣。"
+      },
+      "INFJ": {
+        "courseTheme": "内心沉思探索路线",
+        "explorationStyle": "不要着急，慢慢感受空间。避开人多的时段，充分享受独自宁静沉思的时光，这是此次探索的核心。",
+        "recommendationTone": "以这个空间中人们的故事与深深的感动为中心，传递能久久留在心中的共鸣与灵感。"
+      },
+      "INFP": {
+        "courseTheme": "感性沉浸探索路线",
+        "explorationStyle": "不必在意动线，随心而行。带上笔记本或素描本，随时记录在空间中涌现的感受。",
+        "recommendationTone": "用感性而诗意的语言传递旅行地的氛围与感觉，带来在想象中超越时空的特别时刻。"
+      },
+      "ENFJ": {
+        "courseTheme": "共同叙事路线",
+        "explorationStyle": "与家人或朋友同行。参加解说项目或将发现的故事分享给身边的人，让体验加倍丰富。",
+        "recommendationTone": "聚焦旅行地所具有的社会意义与人与人之间的连结，强调共同探索的珍贵价值。"
+      },
+      "ENFP": {
+        "courseTheme": "自由发现探索路线",
+        "explorationStyle": "轻松游览多个空间也无妨。与当地人随意交流或参加体验项目，享受意想不到的乐趣。",
+        "recommendationTone": "不断提示有趣的可能性，提升对尚未发现的惊喜的期待与兴奋感。"
+      },
+      "ISTJ": {
+        "courseTheme": "系统记录探索路线",
+        "explorationStyle": "充分准备后，按顺序系统探索。认真阅读每一块指示牌，不错过细节，是你的最大优势。",
+        "recommendationTone": "以准确的历史事实与可信赖的详细信息为基础，提供完美准备探索所需的全部信息。"
+      },
+      "ISFJ": {
+        "courseTheme": "宁静空间品味路线",
+        "explorationStyle": "悠闲漫步，全身融入空间的氛围。打开心扉感受细微之处，用缓慢的步伐充分品味旅行地的韵味。",
+        "recommendationTone": "以这个空间蕴含的传统价值与温暖情感为中心，给你留下深刻印象的真诚推荐。"
+      },
+      "ESTJ": {
+        "courseTheme": "高效路线攻略计划",
+        "explorationStyle": "提前规划动线与行程，以核心旅行地为中心快速掌握。积极利用导览地图和语音导览，发挥最大效率。",
+        "recommendationTone": "以实用信息和明确理由为先，提出时间效益最高、价值最大的探索方案。"
+      },
+      "ESFJ": {
+        "courseTheme": "共同闪耀的分享路线",
+        "explorationStyle": "与家人或朋友同行，沿推荐路线游览，用照片留下珍贵时刻。共同的记忆是此次探索最大的礼物。",
+        "recommendationTone": "以可以共同享受的元素和温暖的共同体体验为中心，推荐想要一起分享的特别旅行。"
+      },
+      "ISTP": {
+        "courseTheme": "结构探究实战路线",
+        "explorationStyle": "直接触摸观察，把握这个空间的结构与原理。如有体验项目或VR内容，务必尝试。",
+        "recommendationTone": "以可直接体验的元素和结构特点为中心，为充满好奇心的实战探险家提供专属信息。"
+      },
+      "ISFP": {
+        "courseTheme": "感性瞬间捕捉路线",
+        "explorationStyle": "带上相机或素描本。避开人多时段，选择自然光最美的时刻，完整捕捉这个空间独有的美丽。",
+        "recommendationTone": "以旅行地的美学感觉与氛围、细腻的感性体验为中心，为你的感性世界带来丰富推荐。"
+      },
+      "ESTP": {
+        "courseTheme": "活力探险冒险路线",
+        "explorationStyle": "穿梭于各旅行地之间，积累丰富体验。户外空间或体验项目丰富的地方最适合你的探索风格。",
+        "recommendationTone": "强调活动性与直接体验，提出身体力行、充满活力的探索建议。"
+      },
+      "ESFP": {
+        "courseTheme": "充满活力的共享探索路线",
+        "explorationStyle": "与朋友同行，积极寻找有演出、节庆、体验项目的生动空间。活跃的氛围让你的探索更加精彩。",
+        "recommendationTone": "以乐趣、快乐与活力为中心，充满能量地推荐想要一起分享的体验。"
+      }
+    }
+  },
+  "quiz": {
+    "q1": "探索旅行地时，我会...",
+    "q1_a": "与同行的人分享感动，活力四射地四处游览",
+    "q1_b": "享受独处时光，安静地感受那个空间",
+    "q2": "在遗址阅读说明牌时，我会...",
+    "q2_a": "专注于建筑风格、制作方法等具体事实信息",
+    "q2_b": "边读边想象那个时代的氛围与人们的生活",
+    "q3": "欣赏文化遗产时，我会...",
+    "q3_a": "从逻辑上分析历史背景与价值",
+    "q3_b": "首先被那个时代的情感与故事所打动",
+    "q4": "规划旅行地探索时，我会...",
+    "q4_a": "提前仔细规划路线与参观顺序",
+    "q4_b": "只确定大致目的地，现场即兴探索",
+    "q5": "长时间探索结束后，我想...",
+    "q5_a": "与同伴一起用餐，分享今天的感受",
+    "q5_b": "安静地独自整理余韵，回顾照片",
+    "q6": "在博物馆观看文物时，我会...",
+    "q6_a": "思考文物所象征的意义或历史脉络",
+    "q6_b": "专注于文物的材质、大小、细部装饰等实际样貌",
+    "q7": "听旅行地解说员讲解时，我会...",
+    "q7_a": "考证历史事实的准确性与逻辑因果关系",
+    "q7_b": "更关注能感受到那个时代人们生活与情感的部分",
+    "q8": "突然新增探索行程时，我会...",
+    "q8_a": "首先确认是否会影响整体行程",
+    "q8_b": "有趣的话当然加，行程之后再调整",
+    "q9": "在旅行地拍照时，我会...",
+    "q9_a": "与同行的人多拍合照，留下美好回忆",
+    "q9_b": "安静地独自拍摄风景与文物，留下自己的记录",
+    "q10": "初次参观遗址时，我会...",
+    "q10_a": "首先看导览图，了解位置与构成要素",
+    "q10_b": "随感觉随脚步四处漫游",
+    "q11": "探索结束后留下的是...",
+    "q11_a": "关于这个旅行地为何特别的知识与理解",
+    "q11_b": "在那个空间感受到的感动与特别瞬间的记忆",
+    "q12": "旅行地探索中最不舒适的情况是...",
+    "q12_a": "意外的闭馆或行程变更",
+    "q12_b": "行程安排过于紧凑，没有余裕的时候",
+    "dimEI": "社交性",
+    "dimNS": "信息处理",
+    "dimTF": "决策方式",
+    "dimJP": "生活方式",
+    "dimSuffix": " 类型",
+    "hint": "请选择直觉上更倾向的选项",
+    "analyzing": "探索性格分析中",
+    "start": "开始",
+    "done": "完成",
+    "percentComplete": "% 完成",
+    "prev": "上一题",
+    "next": "下一题",
+    "seeResults": "查看结果",
+    "calculating": "计算结果中...",
+    "questionOf": "{current} / {total} 题",
+    "selected": "已选择",
+    "pageTitle": "我的旅行探索性格是什么？",
+    "pageDesc1": "通过12道题了解你专属的旅行探索风格。",
+    "pageDesc2": "回答越诚实，推荐越准确。",
+    "tip": "💡 提示：犹豫的题目请选择第一个浮现的选项。",
+    "tip2": "中途退出不会保存，建议一次完成。"
+  }
+}

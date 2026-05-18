@@ -1,0 +1,370 @@
+{
+  "nav": {
+    "home": "Home",
+    "test": "Take Test",
+    "result": "View Results",
+    "cta": "Find My Destination"
+  },
+  "hero": {
+    "badge": "MBTI-Based Travel Destination Curation",
+    "titleLine1": "Discover",
+    "titleHighlight": "Travel Destinations",
+    "titleSuffix": "",
+    "titleLine3": "Tailored Just for You",
+    "description": "Personalized curation based on 8 personality dimensions. We match you with the perfect travel destination from 36 sites across Korea.",
+    "btnStart": "Find My Destination",
+    "btnBrowse": "Browse",
+    "imgGyeongbokgung": "Gyeongbokgung",
+    "imgHaeinsa": "Haeinsa Temple",
+    "imgJongmyo": "Jongmyo Shrine",
+    "imgSeongsan": "Seongsan Ilchulbong"
+  },
+  "stats": {
+    "heritages": "Travel Destinations",
+    "mbtiTypes": "MBTI Types",
+    "regions": "Regions"
+  },
+  "howItWorks": {
+    "badge": "How It Works",
+    "titleLine1": "Discover Your Destination",
+    "titleLine2": "in 3 Simple Steps",
+    "description": "More than just tourist spots — we analyze your personality and design the travel destination experience that fits you best.",
+    "step1Title": "MBTI Personality Test",
+    "step1Desc": "12 questions designed around travel exploration. We precisely analyze your style across four dimensions: E/I, N/S, T/F, J/P.",
+    "step2Title": "AI Persona Generation",
+    "step2Desc": "OpenAI crafts your unique explorer persona — like \"Emotional Travel Walker\" or \"Analytical History Seeker\" — tailored just for you.",
+    "step3Title": "Personalized Recommendations",
+    "step3Desc": "From 36 travel destinations, we surface the best matches with compatibility scores. Filter by region to narrow it down."
+  },
+  "featured": {
+    "title": "Travel Destinations to Explore Now",
+    "description": "Discover iconic travel destinations from across the country",
+    "viewAll": "View All",
+    "viewAllMobile": "View All Destinations"
+  },
+  "highlights": {
+    "badge": "Curation Platform",
+    "titleLine1": "Not just recommendations —",
+    "titleHighlight": "Experience Designed for You",
+    "description": "A quiet Soswaewon garden for INFP, a strategic Namhansanseong fortress for ENTJ. The same place becomes a completely different experience based on who you are.",
+    "feature1": "Exploration style analysis · Reasoned recommendations",
+    "feature2": "Dual perspective: history-focused vs emotion-focused",
+    "feature3": "Region filter + MBTI combined search",
+    "feature4": "AI-generated personal explorer persona",
+    "btnTest": "Take the Test Now",
+    "card1Title": "Strategic Culture Analyst",
+    "card1Desc": "Explores destinations by analyzing historical value with a systematic route.",
+    "card1Sites": "Hwaseong Fortress|Jongmyo Shrine|Haeinsa Temple",
+    "card2Title": "Dreamy History Imaginer",
+    "card2Desc": "A quiet explorer who communicates with the past through emotion and imagination.",
+    "card2Sites": "Soswaewon Garden|Changdeokgung Secret Garden|Gwanghallu Pavilion",
+    "card3Title": "Passionate Destination Enthusiast",
+    "card3Desc": "A social explorer who loves experiencing vibrant travel destinations with friends.",
+    "card3Sites": "Gyeongbokgung Palace|Jeonju Hanok Village|Seongsan Ilchulbong"
+  },
+  "regions": {
+    "badge": "Nationwide Coverage",
+    "titleLine1": "From Seoul to Jeju —",
+    "titleLine2": "8 Regions Across Korea",
+    "description": "Explore travel destinations by region across the entire country.",
+    "siteSuffix": "destinations",
+    "all": "Nationwide",
+    "seoul": "Seoul",
+    "gyeonggi": "Gyeonggi · Incheon",
+    "gangwon": "Gangwon",
+    "chungcheong": "Chungcheong · Daejeon",
+    "jeolla": "Jeolla · Gwangju",
+    "gyeongsang": "Gyeongsang · Busan",
+    "jeju": "Jeju"
+  },
+  "cta": {
+    "badge": "Takes about 3 minutes",
+    "titleLine1": "Find Your Perfect",
+    "titleLine2": "Travel Destination Right Now",
+    "description": "From 36 travel destinations, get AI-curated recommendations matched to your personality.",
+    "btnStart": "Start the Test"
+  },
+  "result": {
+    "personaBadge": "Your Travel Explorer Type",
+    "analyzing": "AI is analyzing...",
+    "analyzingDesc": "Analyzing your travel exploration personality...",
+    "shareCopied": "Copied!",
+    "shareBtn": "Share Results",
+    "shareTitle": "My Travel Explorer Type",
+    "shareText": "My travel explorer type is \"{mbti} · {title}\"!\nDiscover your perfect destination at Personal tour.",
+    "retakeBtn": "Retake Test",
+    "groupNT": "Analyst",
+    "groupNF": "Diplomat",
+    "groupSJ": "Sentinel",
+    "groupSP": "Explorer",
+    "dimensionTitle": "Personality Analysis",
+    "dimE": "E Extrovert",
+    "dimI": "I Introvert",
+    "dimN": "N Intuition",
+    "dimS": "S Sensing",
+    "dimT": "T Thinking",
+    "dimF": "F Feeling",
+    "dimJ": "J Judging",
+    "dimP": "P Perceiving",
+    "styleTitle": "My Exploration Style",
+    "courseBadge": "1-Day Recommended Course",
+    "courseTip": "Course Tip:",
+    "courseTipText": "This course is arranged in a convenient travel order within the {region} region. Plan for a relaxed full-day trip!",
+    "viewOnGoogleMaps": "View on Google Maps",
+    "mapTitle": "1-Day Route Map",
+    "mapSubtitle": "Click a pin to see photos",
+    "recsTitle": "Recommended Destinations",
+    "recsSubAll": "Nationwide",
+    "recsSub": "Sorted by compatibility with {mbti} personality",
+    "retakeLabel": "Retake Test",
+    "emptyState": "No destinations found for the selected region.",
+    "viewAllBtn": "View All Nationwide",
+    "ctaTitle": "Explore More Destinations",
+    "ctaDesc": "Try different region filters or retake the test to discover destinations from a new perspective.",
+    "ctaHome": "Back to Home",
+    "ctaRetake": "Retake Test"
+  },
+  "footer": {
+    "brand": "Personal tour",
+    "brandDesc": "AI curation platform recommending travel destinations across Korea based on your MBTI personality",
+    "curation": "Travel Destinations Curated Nationwide",
+    "service": "Service",
+    "regions": "Browse by Region",
+    "info": "Info",
+    "officialInfo": "Based on Official Heritage Authority Data",
+    "unescoData": "UNESCO World Heritage Data",
+    "aiCuration": "AI-Powered Personalized Curation",
+    "copyright": "© 2025 Personal tour. All rights reserved.",
+    "forHeritage": "for Korean Travel"
+  },
+  "header": {
+    "lang": "Language",
+    "brand": "Personal tour",
+    "langLabel": "Language"
+  },
+  "heritage": {
+    "notFound": "Destination Not Found",
+    "notFoundDesc": "The requested destination could not be found.",
+    "backToResult": "Back to Results",
+    "tabInfo": "Overview",
+    "tabMBTI": "MBTI Analysis",
+    "historicalTitle": "Historical Background",
+    "emotionalTitle": "Sensory Experience",
+    "mbtiAnalysis": "Personality Dimensions (8 Axes)",
+    "mbtiTop3": "Top 3 Recommended MBTI",
+    "score": "pts",
+    "tagsTitle": "Tags",
+    "nearbyTitle": "Nearby Destinations",
+    "infoTitle": "Recommended Info",
+    "officialSite": "Official Website",
+    "visitNow": "Visit",
+    "retakeTest": "Retake MBTI Test",
+    "featured": "Featured",
+    "recommended": "Recommended"
+  },
+  "companion": {
+    "activeGroup": "Active Group",
+    "activeGroupDesc": "A lively trip sharing energy and excitement together",
+    "quietSolo": "Quiet Solo",
+    "quietSoloDesc": "Time for personal reflection and meditation",
+    "romanticCouple": "Romantic Couple",
+    "romanticCoupleDesc": "A romantic trip enjoying the atmosphere together",
+    "knowledgeableFriend": "History Buff Friend",
+    "knowledgeableFriendDesc": "A trip exploring history and culture together",
+    "natureLover": "Nature Lover",
+    "natureLoverDesc": "A healing trip connecting with nature",
+    "anyone": "Works for Everyone",
+    "anyoneDesc": "A trip enjoyable with all kinds of people"
+  },
+  "mbtiReason": {
+    "vibrant": "Vibrant atmosphere",
+    "serene": "Peaceful contemplation",
+    "imaginative": "Stimulates imagination",
+    "historical": "Historical experience",
+    "analytical": "Logical analysis",
+    "emotional": "Emotional resonance",
+    "structured": "Structured route",
+    "freeExplore": "Free exploration",
+    "balanced": "Well-rounded experience",
+    "nature": "Natural setting"
+  },
+  "mbti": {
+    "titles": {
+      "ISTJ": "Meticulous Destination Explorer",
+      "ISFJ": "Gentle Destination Guardian",
+      "INFJ": "Deep-Insight Destination Seeker",
+      "INTJ": "Strategic Destination Analyst",
+      "ISTP": "Practical Destination Explorer",
+      "ISFP": "Soulful Destination Appreciator",
+      "INFP": "Dreamy Destination Imaginer",
+      "INTP": "Logical Destination Scholar",
+      "ESTP": "Active Destination Adventurer",
+      "ESFP": "Passionate Destination Enthusiast",
+      "ENFP": "Free-Spirited Destination Discoverer",
+      "ENTP": "Creative Destination Interpreter",
+      "ESTJ": "Efficient Destination Explorer",
+      "ESFJ": "Warm Destination Sharer",
+      "ENFJ": "Inspiring Destination Storyteller",
+      "ENTJ": "Visionary Destination Leader"
+    },
+    "descs": {
+      "ISTJ": "A systematic explorer who digs into historical facts, valuing verified information above all.",
+      "ISFJ": "A quiet observer who appreciates the subtle details of travel destinations and respects tradition.",
+      "INFJ": "A reflective explorer who seeks the deeper meaning and human stories embedded in travel destinations.",
+      "INTJ": "A methodical researcher who analyzes the strategic value and long-term significance of travel destinations.",
+      "ISTP": "A hands-on explorer who grasps the practical mechanics and structure of destinations firsthand.",
+      "ISFP": "An artist-soul who subtly feels the aesthetic beauty and momentary atmosphere of destinations.",
+      "INFP": "A dreamer who creates new interpretations through the emotion and imagination found in travel destinations.",
+      "INTP": "A scholarly analyst who logically deconstructs the historical context and underlying principles.",
+      "ESTP": "An action-oriented explorer who swiftly experiences a wide variety of destinations firsthand.",
+      "ESFP": "A social, spirited visitor who enjoys the vibrant energy of destinations and loves sharing the fun.",
+      "ENFP": "A free-spirited traveler who discovers new destinations and explores diverse possibilities.",
+      "ENTP": "An innovator who brings fresh perspectives and creative interpretations to travel destinations.",
+      "ESTJ": "A pragmatic achiever who systematically tours destinations with an efficiently planned route.",
+      "ESFJ": "A warm connector who values community and shared experience through travel destinations.",
+      "ENFJ": "A charismatic storyteller who uses destinations to inspire and move others.",
+      "ENTJ": "A strategic leader who experiences travel destinations with clear vision and purpose."
+    },
+    "persona": {
+      "INTJ": {
+        "courseTheme": "Strategic Deep-Dive Course",
+        "explorationStyle": "Thorough prior research is your superpower — move efficiently through key highlights and deepen your experience with audio guides or expert commentary.",
+        "recommendationTone": "I'll walk you through this destination's historical context and architectural significance, making a clear logical case for why it belongs on your itinerary."
+      },
+      "INTP": {
+        "courseTheme": "Intellectual Inquiry Course",
+        "explorationStyle": "Give yourself ample unstructured time to wander and wonder. When a question surfaces, search it out or jot it down — enjoy crafting your own unique interpretation.",
+        "recommendationTone": "Facts and logic provide the framework; multiple layers of interpretation await your own exploration of this remarkable space."
+      },
+      "ENTJ": {
+        "courseTheme": "Vision-Led Exploration Course",
+        "explorationStyle": "Set clear goals and a defined route, then zero in on the core highlights efficiently. Independent exploration suits you far better than a guided tour.",
+        "recommendationTone": "Presenting this destination through its influence and contemporary relevance, paired with concrete strategic takeaways for your journey."
+      },
+      "ENTP": {
+        "courseTheme": "Creative Rediscovery Course",
+        "explorationStyle": "Serendipitous finds beat a rigid itinerary any day. Strike up a conversation with fellow visitors — a completely fresh perspective could be just around the corner.",
+        "recommendationTone": "Sparking your curiosity through unconventional angles and hidden stories that make you see this space in a completely new light."
+      },
+      "INFJ": {
+        "courseTheme": "Contemplative Insight Course",
+        "explorationStyle": "Linger at your own pace and let the space speak to you. Avoid peak-hour crowds and carve out dedicated time for quiet personal reflection.",
+        "recommendationTone": "Centering the emotional resonance and human stories woven into this space — delivering empathy and lasting inspiration."
+      },
+      "INFP": {
+        "courseTheme": "Immersive Sensory Journey",
+        "explorationStyle": "Follow your heart rather than a fixed route. Bring a journal or sketchbook to capture the impressions and feelings that naturally arise as you explore.",
+        "recommendationTone": "Conveying the feeling and atmosphere of this destination through evocative, almost poetic language — inviting you to transcend time through imagination."
+      },
+      "ENFJ": {
+        "courseTheme": "Shared Stories Course",
+        "explorationStyle": "Visit with family or friends — guided programs are especially rewarding for you. The joy of sharing what you've discovered with others multiplies the experience.",
+        "recommendationTone": "Underscoring the social meaning of this destination, with a focus on human connection and shared discovery."
+      },
+      "ENFP": {
+        "courseTheme": "Free-Spirited Discovery Course",
+        "explorationStyle": "Dip lightly into multiple spaces — and don't miss a chance to chat with locals or join a hands-on program for a richer, more spontaneous experience.",
+        "recommendationTone": "Surfacing exciting possibilities at every turn and building real anticipation for the discoveries still ahead of you."
+      },
+      "ISTJ": {
+        "courseTheme": "Systematic Record Course",
+        "explorationStyle": "Thorough preparation first, then a systematic visit in proper sequence. Read every information panel carefully — the finer details reward your diligent attention.",
+        "recommendationTone": "Grounded in precise historical facts and detailed information you can rely on completely — everything you need for a perfectly prepared exploration."
+      },
+      "ISFJ": {
+        "courseTheme": "Quiet Atmosphere Course",
+        "explorationStyle": "Slow down and let the atmosphere wash over you. Keep your senses open to the small details, and savor the mood of each destination at a gentle, unhurried pace.",
+        "recommendationTone": "Centered on the traditional values and warm, caring spirit of this destination — a heartfelt, personal recommendation just for you."
+      },
+      "ESTJ": {
+        "courseTheme": "Efficient Conquest Course",
+        "explorationStyle": "Plan your route and schedule in advance, then absorb the key highlights efficiently. Make the most of the site map, audio guides, and directional signage.",
+        "recommendationTone": "Practical information and clear reasoning front and center — helping you make the most time-efficient, high-value exploration choice."
+      },
+      "ESFJ": {
+        "courseTheme": "Warmth & Sharing Course",
+        "explorationStyle": "Visit with family or friends, follow a recommended itinerary, and take plenty of photos to preserve the shared memories you'll treasure.",
+        "recommendationTone": "Recommending experiences you can enjoy and share together, with a focus on warm communal moments and lasting memories."
+      },
+      "ISTP": {
+        "courseTheme": "Hands-On Structure Course",
+        "explorationStyle": "Touch things, examine the structure, and figure out how it all works. Hands-on programs and immersive content like VR are especially rewarding for your style.",
+        "recommendationTone": "Spotlighting the tactile, experiential elements and structural features that reward a curious, hands-on investigator like you."
+      },
+      "ISFP": {
+        "courseTheme": "Soulful Moment-Capture Course",
+        "explorationStyle": "Bring your camera or sketchbook. Avoid the busy hours and choose a time when the natural light is at its most beautiful — then let this space's beauty speak to you.",
+        "recommendationTone": "Centered on aesthetic beauty, atmosphere, and the rich sensory experience this destination offers — a recommendation that speaks to your soul."
+      },
+      "ESTP": {
+        "courseTheme": "Active Adventure Course",
+        "explorationStyle": "Cover ground, try different things, and stack up diverse experiences. Outdoor spaces and places with hands-on activities are your perfect exploration match.",
+        "recommendationTone": "Emphasizing direct action and hands-on experience — an energetic itinerary built for someone who truly learns by doing."
+      },
+      "ESFP": {
+        "courseTheme": "Vibrant Shared Adventure Course",
+        "explorationStyle": "Head out with friends and keep an eye out for live performances, festivals, or interactive programs — the livelier the atmosphere, the better your exploration.",
+        "recommendationTone": "High-energy recommendations centered on fun, spontaneity, and memorable experiences you'll want to share with everyone."
+      }
+    }
+  },
+  "quiz": {
+    "q1": "When visiting a travel destination, you tend to...",
+    "q1_a": "Explore energetically with others, sharing your reactions",
+    "q1_b": "Take your time alone, quietly soaking in the atmosphere",
+    "q2": "When reading an information board at a historical site, you focus on...",
+    "q2_a": "Specific facts — architectural styles, materials, construction methods",
+    "q2_b": "The atmosphere of the era and imagining the lives of people back then",
+    "q3": "When appreciating a cultural artifact, you tend to...",
+    "q3_a": "Analyze its historical context and significance logically",
+    "q3_b": "Feel moved by the stories and emotions of that era first",
+    "q4": "When planning a travel trip, you...",
+    "q4_a": "Carefully map out your route and the order of visits in advance",
+    "q4_b": "Pick a main destination and figure out the rest on the spot",
+    "q5": "After a long tour, you want to...",
+    "q5_a": "Share what you felt over a meal with your companions",
+    "q5_b": "Quietly look through your photos and reflect on the day alone",
+    "q6": "At a museum looking at artifacts, you tend to...",
+    "q6_a": "Think about the symbolic meaning and historical significance",
+    "q6_b": "Focus on the actual appearance — material, size, fine details",
+    "q7": "Listening to a destination guide's explanation, you find yourself...",
+    "q7_a": "Checking the accuracy of facts and the logical cause-and-effect",
+    "q7_b": "Drawn to parts that bring the lives and emotions of that era to life",
+    "q8": "If an unplanned new site is added to your itinerary, you...",
+    "q8_a": "First check whether it fits comfortably within the overall schedule",
+    "q8_b": "Add it without hesitation if it sounds interesting — schedules can flex",
+    "q9": "When taking photos at a destination, you tend to...",
+    "q9_a": "Take lots of photos together with the people you came with",
+    "q9_b": "Quietly capture the scenery and artifacts on your own",
+    "q10": "At a destination you're visiting for the first time, you...",
+    "q10_a": "First check the map to understand the layout and key areas",
+    "q10_b": "Wander wherever your instincts lead you",
+    "q11": "After finishing a tour, what stays with you most is...",
+    "q11_a": "Knowledge and understanding of why this destination is special",
+    "q11_b": "The emotions you felt and the memorable moments in that space",
+    "q12": "The most uncomfortable situation during a travel trip is...",
+    "q12_a": "Unexpected closures or last-minute schedule changes",
+    "q12_b": "A schedule so tight there's no room to breathe",
+    "dimEI": "Social Style",
+    "dimNS": "Information Processing",
+    "dimTF": "Decision Making",
+    "dimJP": "Lifestyle",
+    "dimSuffix": "",
+    "hint": "Choose the option that feels more natural to you",
+    "analyzing": "Analyzing exploration style",
+    "start": "Start",
+    "done": "Done",
+    "percentComplete": "% complete",
+    "prev": "Previous",
+    "next": "Next",
+    "seeResults": "See Results",
+    "calculating": "Calculating...",
+    "questionOf": "{current} / {total}",
+    "selected": "Selected",
+    "pageTitle": "What's Your Travel Exploration Style?",
+    "pageDesc1": "12 questions to discover your travel exploration style.",
+    "pageDesc2": "The more honest your answers, the more accurate your recommendations.",
+    "tip": "💡 Tip: For tough questions, go with whatever comes to mind first.",
+    "tip2": "Progress is not saved, so try to complete the test in one sitting."
+  }
+}
