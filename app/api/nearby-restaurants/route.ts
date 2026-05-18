@@ -19,7 +19,7 @@ interface RawPlace {
   vicinity?: string;
 }
 
-// ─── 좌표 취득 (API_KEY를 실시간으로 받도록 수정) ─────────────────
+// ─── 좌표 취득 ────────────────────────────────────────────
 async function getCoords(name: string, city: string, apiKey: string): Promise<{ lat: number; lng: number } | null> {
   const url = new URL('https://maps.googleapis.com/maps/api/place/textsearch/json');
   url.searchParams.set('query', `${name} ${city} 한국`);
@@ -36,7 +36,7 @@ async function getCoords(name: string, city: string, apiKey: string): Promise<{ 
   return { lat, lng };
 }
 
-// ─── 단일 nearbySearch 호출 (API_KEY를 실시간으로 받도록 수정) ──────
+// ─── 단일 nearbySearch 호출 ────────────────────────────────
 async function nearbySearch(
   lat: number,
   lng: number,
@@ -68,7 +68,7 @@ function mergeUnique(...arrays: RawPlace[][]): RawPlace[] {
   });
 }
 
-// ─── RawPlace → NearbyRestaurant 변환 (오타 수정 완료) ──────────
+// ─── RawPlace → NearbyRestaurant 변환 ─────────────────────
 function toRestaurant(r: RawPlace): NearbyRestaurant {
   const photoRef = r.photos?.[0]?.photo_reference;
   return {
@@ -77,7 +77,7 @@ function toRestaurant(r: RawPlace): NearbyRestaurant {
     rating: r.rating ?? 0,
     userRatingsTotal: r.user_ratings_total ?? 0,
     photoUrl: photoRef ? `/api/places/photo?ref=${encodeURIComponent(photoRef)}` : null,
-    googleMapsUrl: `https://www.google.com/maps/place/?q=place_id:${r.place_id}`, // 링크 깨지던 오타 수정
+    googleMapsUrl: `https://www.google.com/maps/place/?q=place_id:${r.place_id}`,
     vicinity: r.vicinity ?? '',
   };
 }
@@ -97,14 +97,12 @@ function pickTop(pool: RawPlace[], minRating: number, limit = 3): NearbyRestaura
     .map(toRestaurant);
 }
 
-// ─── 메인: 3단계 폴백 (API_KEY를 실시간으로 받도록 수정) ─────────────
+// ─── 메인: 3단계 폴백 ────────────────────────────────────
 async function fetchNearbyRestaurants(lat: number, lng: number, apiKey: string): Promise<NearbyRestaurant[]> {
-  // 1단계: 2km, restaurant 타입, 평점 4.0+
   const base2km = await nearbySearch(lat, lng, 2000, apiKey);
   const top_4 = base2km.filter(r => (r.rating ?? 0) >= 4.0);
   if (top_4.length >= 3) return pickTop(base2km, 4.0);
 
-  // 2단계: 2km, 키워드 병행 검색(맛집·식당·카페) → 합산 후 4.0+ 재시도
   const [kwFood, kwRestaurant, kwCafe] = await Promise.all([
     nearbySearch(lat, lng, 2000, apiKey, '맛집'),
     nearbySearch(lat, lng, 2000, apiKey, '식당'),
@@ -114,17 +112,16 @@ async function fetchNearbyRestaurants(lat: number, lng: number, apiKey: string):
   const top_4_merged = merged2km.filter(r => (r.rating ?? 0) >= 4.0);
   if (top_4_merged.length >= 1) return pickTop(merged2km, 4.0);
 
-  // 3단계: 5km 확장, 평점 3.5 이상 / 없으면 리뷰 많은 순
   const base5km = await nearbySearch(lat, lng, 5000, apiKey);
   const merged5km = mergeUnique(merged2km, base5km);
   return pickTop(merged5km, 3.5);
 }
 
-// ─── Route Handler (요청이 들어올 때 실시간으로 키를 읽도록 수정) ───
+// ─── Route Handler ────────────────────────────────────────
 export async function GET(req: NextRequest) {
-  const currentApiKey = process.env.GOOGLE_MAPS_API_KEY; // 실시간으로 인지하도록 내부로 구출
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
-  if (!currentApiKey) {
+  if (!apiKey) {
     return NextResponse.json({ error: 'GOOGLE_MAPS_API_KEY not set' }, { status: 500 });
   }
 
@@ -137,10 +134,10 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const coords = await getCoords(name, city, currentApiKey);
+    const coords = await getCoords(name, city, apiKey);
     if (!coords) return NextResponse.json({ restaurants: [] });
 
-    const restaurants = await fetchNearbyRestaurants(coords.lat, coords.lng, currentApiKey);
+    const restaurants = await fetchNearbyRestaurants(coords.lat, coords.lng, apiKey);
     return NextResponse.json({ restaurants });
   } catch (e) {
     console.error('[/api/nearby-restaurants] error:', e);
