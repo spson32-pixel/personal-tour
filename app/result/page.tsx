@@ -21,7 +21,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import RegionFilter from '@/components/heritage/RegionFilter';
 import RecommendedCard from '@/components/heritage/RecommendedCard';
-import HeritageMap from '@/components/heritage/HeritageMap';
+import HeritageMap, { MAPS_KEY_AVAILABLE } from '@/components/heritage/HeritageMap';
 import {
   MBTIType,
   Region,
@@ -528,6 +528,7 @@ function ResultContent() {
               </Card>
 
               {/* ===== 1일 코스 지도 ===== */}
+              {MAPS_KEY_AVAILABLE && (
               <Card className="border-0 shadow-sm overflow-hidden">
                 <CardContent className="p-6 sm:p-8">
                   <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2 text-lg">
@@ -540,6 +541,7 @@ function ResultContent() {
                   <HeritageMap sites={course.sites.map(s => ({ name: s.name, city: s.city, image: s.image }))} />
                 </CardContent>
               </Card>
+              )}
               </>
             )}
 

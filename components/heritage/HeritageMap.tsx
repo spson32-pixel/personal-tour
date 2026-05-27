@@ -8,7 +8,7 @@ import {
   Polyline,
   InfoWindow,
 } from '@react-google-maps/api';
-import { Loader2 } from 'lucide-react';
+import { Loader2, ExternalLink } from 'lucide-react';
 import { notifyMapsReady } from '@/lib/googlePlaces';
 
 // ─── 타입 ──────────────────────────────────────────────────
@@ -53,6 +53,9 @@ const MASKED_KEY =
   RAW_KEY.length > 10
     ? `${RAW_KEY.slice(0, 6)}...${RAW_KEY.slice(-4)} (길이: ${RAW_KEY.length})`
     : '(비어 있음)';
+
+/** 부모 컴포넌트에서 지도 섹션 조건부 렌더링에 사용 */
+export const MAPS_KEY_AVAILABLE = KEY_STATUS === 'ok';
 
 // ─── 도시명 기반 fallback 좌표 ─────────────────────────────
 const CITY_FALLBACKS: Array<{ keywords: string[]; lat: number; lng: number }> = [
@@ -204,9 +207,31 @@ export default function HeritageMap({ sites }: HeritageMapProps) {
   }
 
   if (loadError) {
-    // 브라우저 콘솔(F12)에서 오류 메시지 확인 가능
-    console.error('[HeritageMap] Google Maps 로드 실패:', loadError.message);
-    return null;
+    console.error('[HeritageMap] Google Maps 로드 실패 (Maps JavaScript API 활성화 필요):', loadError.message);
+    // 인터랙티브 지도 대신 Google Maps 링크 목록으로 폴백
+    return (
+      <div className="rounded-xl border border-slate-200 overflow-hidden">
+        {sites.map((site, i) => (
+          <a
+            key={i}
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.name + ' ' + site.city)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0"
+          >
+            <span
+              className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+              style={{ backgroundColor: LABEL_COLORS[i] ?? '#888' }}
+            >
+              {LABELS[i] ?? i + 1}
+            </span>
+            <span className="text-sm font-medium text-slate-700 flex-1">{site.name}</span>
+            <span className="text-xs text-slate-400">{site.city}</span>
+            <ExternalLink className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
+          </a>
+        ))}
+      </div>
+    );
   }
 
   if (!isLoaded) {
