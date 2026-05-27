@@ -48,6 +48,7 @@ export async function POST(request: NextRequest) {
     // OpenAI 프롬프트 구성 (locale에 따라 언어 분기)
     const isChinese = locale === 'zh';
     const isEnglish = locale === 'en';
+    const isJapanese = locale === 'ja';
     const prompt = isChinese ? `
 너는 문화유산 큐레이션 전문가이다.
 사용자의 MBTI 성향과 추천된 문화유산을 기반으로, 개인화된 탐방 페르소나를 생성해주세요.
@@ -90,6 +91,33 @@ Respond in the following JSON format. All values must be written in English:
   "explorationStyle": "Exploration style description in under 200 words",
   "recommendationTone": "Under 150 words tone and approach"
 }
+` : isJapanese ? `
+あなたは文化遺産キュレーションの専門家です。
+ユーザーのMBTI性格タイプと推薦された文化遺産に基づいて、個人化された探訪ペルソナを生成してください。
+
+[ユーザー情報]
+- MBTI: ${mbti}
+
+[推薦された文化遺産]
+${heritageInfo.map((h, i) => `${i + 1}. ${h.name} (${h.region})
+   - 特徴: ${h.tags.join(', ')}
+   - 説明: ${h.summary}`).join('\n\n')}
+
+[出力要件]
+以下のJSON形式で回答してください。すべての値は日本語で記述:
+
+{
+  "personaTitle": "10文字以内の創意的な探訪者タイプ名（例：「感性的歴史散策者」「分析型文化探究者」）",
+  "personaSummary": "150文字以内の性格要約 - このMBTIタイプが文化遺産を見る特徴的な視点",
+  "explorationStyle": "200文字以内の探訪スタイルの説明 - この性格の人が好む探訪方式と注意点",
+  "recommendationTone": "150文字以内 - このタイプに文化遺産を薦めるメッセージのトーンとアプローチ"
+}
+
+[重要指針]
+1. MBTIの各次元（E/I、N/S、T/F、J/P）を反映した正確な性格分析
+2. 推薦された文化遺産の特徴（自然、歴史、建築など）との連携
+3. 実用的で具体的なアドバイスを含める
+4. 温かく共感のあるトーンを維持する
 ` : `
 당신은 문화유산 큐레이션 전문가입니다.
 사용자의 MBTI 성향과 추천된 문화유산을 기반으로, 개인화된 탐방 페르소나를 생성해주세요.
@@ -129,6 +157,8 @@ ${heritageInfo.map((h, i) => `${i + 1}. ${h.name} (${h.region})
             ? '你是一位文化遗产策展专家。'
             : isEnglish
             ? 'You are an expert cultural heritage curator.'
+            : isJapanese
+            ? 'あなたは文化遺産キュレーションの専門家です。'
             : '당신은 문화유산 큐레이션 전문가입니다.'
         },
         {
@@ -162,6 +192,28 @@ ${heritageInfo.map((h, i) => `${i + 1}. ${h.name} (${h.region})
 }
 
 function getDefaultPersona(mbti: MBTIType, locale: string = 'ko') {
+  if (locale === 'ja') {
+    const jaDefaults: Record<string, { personaTitle: string; personaSummary: string; explorationStyle: string; recommendationTone: string; }> = {
+      'INTJ': { personaTitle: '戦略的空間分析家', personaSummary: '探訪前に膨大な背景知識を体系的に収集し、空間の脈絡と構造的価値を分析します。', explorationStyle: '訪問前に徹底調査を終え、核心ポイントに絞って効率的に探訪しましょう。', recommendationTone: '歴史的脈絡と建築的価値を論理的に解説します。' },
+      'INTP': { personaTitle: '好奇心の知識探訪者', personaSummary: '空間の原理と構造への尽きない好奇心で、独自の解釈を生み出します。', explorationStyle: '日程にとらわれず自由に探訪し、原理を深く掘り下げましょう。', recommendationTone: '事実と論理をもとに隠された意味を探求するお手伝いをします。' },
+      'ENTJ': { personaTitle: 'ビジョンある探訪リーダー', personaSummary: '旅行先の戦略的価値と現代的意義を重視します。', explorationStyle: '明確な目標と動線を設定し、核心スポットを中心に把握しましょう。', recommendationTone: '旅行先が持つ影響力を中心に具体的な示唆を提案します。' },
+      'ENTP': { personaTitle: '創造的空間解釈者', personaSummary: '旅行先を新たな視点で再解釈し、伝統と現代の接点を探ります。', explorationStyle: '決まったコースより偶然の発見を楽しみ、視野を広げましょう。', recommendationTone: '興味深い視点と隠れたストーリーで好奇心を刺激します。' },
+      'INFJ': { personaTitle: '深い洞察の思索探訪者', personaSummary: '空間に込められた人々の物語と意味を深く感じ取ります。', explorationStyle: '急がず、ゆったりと空間を感じながら思索の時間を持ちましょう。', recommendationTone: '心に残る共感と霊感を中心に伝えます。' },
+      'INFP': { personaTitle: '幻想的空間の夢想家', personaSummary: '旅行先の感性と雰囲気に深く没入し、想像力を広げます。', explorationStyle: '動線より心が導くままに動き、感想を記録してみましょう。', recommendationTone: '感性的で詩的な言葉で特別な瞬間をお届けします。' },
+      'ENFJ': { personaTitle: '感動を分かち合う探訪ストーリーテラー', personaSummary: '旅行先の物語を通して他者とつながる価値を見出します。', explorationStyle: '家族や友人と一緒に訪れ、解説を聞いて語り合いましょう。', recommendationTone: '社会的意味と人々のつながりを照らし出します。' },
+      'ENFP': { personaTitle: '自由な空間の発見者', personaSummary: '新しい旅行先を発見し、様々な可能性を探ることを楽しみます。', explorationStyle: '様々な空間を気軽に探訪し、体験プログラムに参加してみましょう。', recommendationTone: 'ワクワクと期待感を高める面白い可能性を提示します。' },
+      'ISTJ': { personaTitle: '徹底した記録探訪者', personaSummary: '体系的に事実を深掘りし、検証された情報と伝統を重視します。', explorationStyle: '案内板一つひとつを丁寧に読み、細部まで見逃さないようにしましょう。', recommendationTone: '正確な歴史的事実と信頼できる詳細情報をもとにします。' },
+      'ISFJ': { personaTitle: '繊細な空間の守り手', personaSummary: '静かに空間の繊細な価値を感じ、伝統を大切にします。', explorationStyle: 'ゆったりと歩き、この旅行先の情緒をじっくり味わいましょう。', recommendationTone: '伝統的価値と温かい情感を中心に丁寧に推薦します。' },
+      'ESTJ': { personaTitle: '効率的コースマスター', personaSummary: '効率的に計画した動線で旅行先を体系的に探訪します。', explorationStyle: '動線と日程を事前に計画し、案内地図を積極的に活用しましょう。', recommendationTone: '時間対価値が最も高い効率的な探訪を提案します。' },
+      'ESFJ': { personaTitle: '温かい空間の共有者', personaSummary: '旅行先を通して他者とつながり、共に過ごす体験を大切にします。', explorationStyle: 'おすすめコースを辿りながら、大切な瞬間を写真に残しましょう。', recommendationTone: '一緒に分かち合いたい特別な旅行を推薦します。' },
+      'ISTP': { personaTitle: '構造を見抜く実践探訪者', personaSummary: '直接体験しながら空間の実用的機能と構造を把握することを楽しみます。', explorationStyle: '直接触れて観察し、VRコンテンツなどに挑戦してみましょう。', recommendationTone: '直接体験できる要素と構造的特徴を中心にします。' },
+      'ISFP': { personaTitle: '感性を宿す瞬間の捕捉者', personaSummary: '空間の美的な美しさと瞬間の雰囲気を繊細に感じます。', explorationStyle: 'カメラを持って、混雑しない時間帯の自然光を収めましょう。', recommendationTone: '美的感覚と雰囲気を中心に感性を満たす推薦をお届けします。' },
+      'ESTP': { personaTitle: '活動的な空間冒険家', personaSummary: '素早く動きながら様々な旅行先を直接体験し楽しみます。', explorationStyle: '屋外空間や体験プログラムが豊富な場所へ移動しましょう。', recommendationTone: '体で学び楽しむエネルギー넘치는冒険を提案します。' },
+      'ESFP': { personaTitle: '情熱で輝く探訪インフルエンサー', personaSummary: '旅行先の生き生きした魅力を楽しみ、周囲と共有します。', explorationStyle: '公演、祭り、体験プログラムがある活気ある空間を探しましょう。', recommendationTone: '楽しさと喜び、躍動感をエネルギッシュに推薦します。' },
+    };
+    return jaDefaults[mbti] || { personaTitle: '空間探訪者', personaSummary: '歴史と感性を体験し、自分だけの探訪スタイルで空間を探究する旅人です。', explorationStyle: '自分のペースでゆっくり巡り、感じたことを大切にしましょう。', recommendationTone: '様々な視点からこの旅行先の魅力をご紹介します。' };
+  }
+
   if (locale === 'zh') {
     const zhDefaults: Record<string, { personaTitle: string; personaSummary: string; explorationStyle: string; recommendationTone: string; }> = {
       'INTJ': { personaTitle: '战略型空间分析家', personaSummary: '探索前系统收集大量背景知识，分析空间的脉络与结构价值。', explorationStyle: '充分调研后聚焦核心要点高效探索。', recommendationTone: '以逻辑方式解读历史脉络。' },

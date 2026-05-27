@@ -78,6 +78,16 @@ export default function Header() {
               >
                 中文
               </button>
+              <button
+                onClick={() => setLocale('ja')}
+                className={`px-3 py-1.5 transition-colors ${
+                  locale === 'ja'
+                    ? 'bg-slate-900 text-white'
+                    : 'text-slate-500 hover:text-slate-900'
+                }`}
+              >
+                日本語
+              </button>
             </div>
 
             <Button asChild>
@@ -150,6 +160,14 @@ export default function Header() {
                     }`}
                   >
                     中文
+                  </button>
+                  <button
+                    onClick={() => setLocale('ja')}
+                    className={`px-3 py-1.5 transition-colors ${
+                      locale === 'ja' ? 'bg-slate-900 text-white' : 'text-slate-500'
+                    }`}
+                  >
+                    日本語
                   </button>
                 </div>
               </div>

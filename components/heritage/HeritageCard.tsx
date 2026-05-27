@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '@/lib/i18n';
 import heritageEn from '@/lib/i18n/heritage-en.json';
 import heritageZh from '@/lib/i18n/heritage-zh.json';
+import heritageJa from '@/lib/i18n/heritage-ja.json';
 import { getPlacePhoto } from '@/lib/placePhoto';
 
 type HeritageLocaleData = Record<string, {
@@ -54,6 +55,8 @@ export default function HeritageCard({
     ? (heritageZh as HeritageLocaleData)[heritage.id]
     : locale === 'en'
     ? (heritageEn as HeritageLocaleData)[heritage.id]
+    : locale === 'ja'
+    ? (heritageJa as HeritageLocaleData)[heritage.id]
     : null;
   const displayName = localeData?.name ?? heritage.name;
   const displayCity = localeData?.city ?? heritage.city;

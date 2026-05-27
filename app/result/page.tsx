@@ -35,6 +35,7 @@ import { storage, getMBTIColorTheme } from '@/lib/utils';
 import { useTranslation } from '@/lib/i18n';
 import heritageEn from '@/lib/i18n/heritage-en.json';
 import heritageZh from '@/lib/i18n/heritage-zh.json';
+import heritageJa from '@/lib/i18n/heritage-ja.json';
 import { getPlacePhoto } from '@/lib/placePhoto';
 
 /** 코스 타임라인 아이템용 이미지 — getPlacePhoto로 실사진 로드 */
@@ -234,7 +235,7 @@ function ResultContent() {
     };
 
     fetchPersona();
-  }, [mbti]);
+  }, [mbti, locale]);
 
   const handleRetake = () => {
     storage.remove('mbti_result');
@@ -430,12 +431,12 @@ function ResultContent() {
                         {t('result.courseBadge')}
                       </Badge>
                       <h3 className="font-bold text-white text-xl">
-                        {(locale === 'en' || locale === 'zh') ? t(`mbti.persona.${mbti}.courseTheme`) : course.title}
+                        {(locale === 'en' || locale === 'zh' || locale === 'ja') ? t(`mbti.persona.${mbti}.courseTheme`) : course.title}
                       </h3>
                     </div>
                   </div>
                   <p className="text-white/80">
-                    {(locale === 'en' || locale === 'zh')
+                    {(locale === 'en' || locale === 'zh' || locale === 'ja')
                       ? `${t(`mbti.persona.${mbti}.explorationStyle`)} ${t(`mbti.persona.${mbti}.recommendationTone`)}`
                       : course.description}
                   </p>
@@ -448,6 +449,8 @@ function ResultContent() {
                         ? (heritageZh as HeritageEnData)[site.id]
                         : locale === 'en'
                         ? (heritageEn as HeritageEnData)[site.id]
+                        : locale === 'ja'
+                        ? (heritageJa as HeritageEnData)[site.id]
                         : null;
                       const siteName = siteLocaleData?.name ?? site.name;
                       const siteCity = siteLocaleData?.city ?? site.city;

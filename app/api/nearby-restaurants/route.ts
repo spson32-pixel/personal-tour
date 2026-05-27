@@ -119,10 +119,10 @@ async function fetchNearbyRestaurants(lat: number, lng: number, apiKey: string):
 
 // ─── Route Handler ────────────────────────────────────────
 export async function GET(req: NextRequest) {
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   if (!apiKey) {
-    return NextResponse.json({ error: 'GOOGLE_MAPS_API_KEY not set' }, { status: 500 });
+    return NextResponse.json({ error: 'NEXT_PUBLIC_GOOGLE_MAPS_API_KEY not set' }, { status: 500 });
   }
 
   const { searchParams } = new URL(req.url);

@@ -6,8 +6,9 @@ import { useLanguage } from './LanguageContext';
 import ko from './ko.json';
 import en from './en.json';
 import zh from './zh.json';
+import ja from './ja.json';
 
-const DICTIONARIES = { ko, en, zh } as const;
+const DICTIONARIES = { ko, en, zh, ja } as const;
 
 /**
  * 번역 훅 - 텍스트가 필요한 모든 컴포넌트에서 사용

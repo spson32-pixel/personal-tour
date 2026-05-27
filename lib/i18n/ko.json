@@ -160,7 +160,9 @@
     "visitNow": "바로가기",
     "retakeTest": "MBTI 테스트 다시 하기",
     "featured": "추천",
-    "recommended": "추천"
+    "recommended": "추천",
+    "nearbyRestaurants": "주변 맛집",
+    "viewOnGoogleMaps": "구글맵에서 보기"
   },
   "companion": {
     "activeGroup": "활발한 친구들",

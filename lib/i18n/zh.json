@@ -160,7 +160,9 @@
     "visitNow": "立即前往",
     "retakeTest": "重新进行MBTI测试",
     "featured": "推荐",
-    "recommended": "推荐"
+    "recommended": "推荐",
+    "nearbyRestaurants": "附近餐厅",
+    "viewOnGoogleMaps": "在谷歌地图上查看"
   },
   "companion": {
     "activeGroup": "活跃的朋友们",

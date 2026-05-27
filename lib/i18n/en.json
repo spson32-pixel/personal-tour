@@ -160,7 +160,9 @@
     "visitNow": "Visit",
     "retakeTest": "Retake MBTI Test",
     "featured": "Featured",
-    "recommended": "Recommended"
+    "recommended": "Recommended",
+    "nearbyRestaurants": "Nearby Restaurants",
+    "viewOnGoogleMaps": "View on Google Maps"
   },
   "companion": {
     "activeGroup": "Active Group",

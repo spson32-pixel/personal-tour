@@ -8,7 +8,7 @@ import {
   Polyline,
   InfoWindow,
 } from '@react-google-maps/api';
-import { MapPin, Loader2, AlertCircle } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { notifyMapsReady } from '@/lib/googlePlaces';
 
 // ─── 타입 ──────────────────────────────────────────────────
@@ -198,51 +198,7 @@ export default function HeritageMap({ sites }: HeritageMapProps) {
 
   // ─── 에러 / 로딩 상태 ──────────────────────────────────────
 
-  if (KEY_STATUS !== 'ok') {
-    return (
-      <div
-        style={{ height: 500 }}
-        className="flex items-center justify-center bg-amber-50 rounded-xl border-2 border-dashed border-amber-200"
-      >
-        <div className="text-center px-6 max-w-sm">
-          <AlertCircle className="h-10 w-10 text-amber-500 mx-auto mb-3" />
-          <p className="font-bold text-slate-800 mb-2">Google Maps API 키 설정 필요</p>
-          <div className="text-sm text-slate-600 text-left space-y-2 bg-white rounded-lg p-4 border border-amber-100">
-            <p className="font-semibold text-amber-700">① .env.local 수정</p>
-            <code className="block bg-slate-100 rounded px-2 py-1 text-xs break-all">
-              NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=<span className="text-green-600">AIzaSy...실제키</span>
-            </code>
-            <p className="font-semibold text-amber-700 mt-2">② 서버 재시작 (필수)</p>
-            <code className="block bg-slate-100 rounded px-2 py-1 text-xs">
-              Ctrl+C → npm run dev
-            </code>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (loadError) {
-    return (
-      <div
-        style={{ height: 500 }}
-        className="flex items-center justify-center bg-red-50 rounded-xl border border-red-200"
-      >
-        <div className="text-center px-6 max-w-sm">
-          <AlertCircle className="h-10 w-10 text-red-400 mx-auto mb-3" />
-          <p className="font-bold text-slate-800 mb-1">지도 로드 실패</p>
-          <ul className="text-sm text-slate-600 text-left list-disc list-inside space-y-1 mt-2">
-            <li>Maps JavaScript API 활성화 확인</li>
-            <li>Places API 활성화 확인</li>
-            <li>HTTP 리퍼러 제한 설정 확인</li>
-          </ul>
-          {process.env.NODE_ENV === 'development' && (
-            <p className="text-xs text-red-400 mt-2">{loadError.message}</p>
-          )}
-        </div>
-      </div>
-    );
-  }
+  if (KEY_STATUS !== 'ok' || loadError) return null;
 
   if (!isLoaded) {
     return (
@@ -253,9 +209,6 @@ export default function HeritageMap({ sites }: HeritageMapProps) {
         <div className="flex flex-col items-center gap-3 text-slate-400">
           <Loader2 className="h-6 w-6 animate-spin" />
           <p className="text-sm">Google Maps 스크립트 로딩 중...</p>
-          {process.env.NODE_ENV === 'development' && (
-            <p className="text-xs text-slate-300">키: {MASKED_KEY}</p>
-          )}
         </div>
       </div>
     );

@@ -29,6 +29,7 @@ import { useTranslation } from '@/lib/i18n';
 import heritagesData from '@/lib/data/heritages.json';
 import heritageEn from '@/lib/i18n/heritage-en.json';
 import heritageZh from '@/lib/i18n/heritage-zh.json';
+import heritageJa from '@/lib/i18n/heritage-ja.json';
 import { getPlacePhoto } from '@/lib/placePhoto';
 
 type HeritageLocaleData = Record<string, {
@@ -52,6 +53,11 @@ function getLocalizedHeritage(heritage: Heritage, locale: string): Heritage {
     const zhData = (heritageZh as HeritageLocaleData)[heritage.id];
     if (!zhData) return heritage;
     return { ...heritage, ...zhData };
+  }
+  if (locale === 'ja') {
+    const jaData = (heritageJa as HeritageLocaleData)[heritage.id];
+    if (!jaData) return heritage;
+    return { ...heritage, ...jaData };
   }
   return heritage;
 }
@@ -125,6 +131,7 @@ interface NearbyRestaurant {
 function NearbyRestaurantsSection({ name, city }: { name: string; city: string }) {
   const [restaurants, setRestaurants] = useState<NearbyRestaurant[]>([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     let cancelled = false;
@@ -145,7 +152,7 @@ function NearbyRestaurantsSection({ name, city }: { name: string; city: string }
   return (
     <Card className="p-4 bg-white">
       <h3 className="font-bold text-slate-900 mb-3 text-sm flex items-center gap-2">
-        <span>🍽️</span> 주변 맛집
+        <span>🍽️</span> {t('heritage.nearbyRestaurants')}
       </h3>
 
       {loading ? (
@@ -192,7 +199,7 @@ function NearbyRestaurantsSection({ name, city }: { name: string; city: string }
                 <p className="text-xs text-slate-400 line-clamp-1 mt-0.5">{r.vicinity}</p>
                 <div className="flex items-center gap-1 mt-1.5 text-xs text-blue-500 font-medium">
                   <ExternalLink className="w-2.5 h-2.5" />
-                  구글맵에서 보기
+                  {t('heritage.viewOnGoogleMaps')}
                 </div>
               </div>
             </a>

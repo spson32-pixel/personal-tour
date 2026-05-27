@@ -13,7 +13,7 @@ import { Region, REGION_MAP } from '@/lib/types';
 import { useTranslation } from '@/lib/i18n';
 
 function HeritageList() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const searchParams = useSearchParams();
   const allHeritages = useMemo(() => getAllHeritages(), []);
 
@@ -75,7 +75,7 @@ function HeritageList() {
 
       {/* Count */}
       <p className="text-sm text-slate-500 mb-6">
-        {filtered.length}개의 여행지
+        {filtered.length}{locale === 'ja' ? '件の旅行先' : locale === 'en' ? ' destinations' : locale === 'zh' ? '个旅行地' : '개의 여행지'}
       </p>
 
       {/* Grid */}
@@ -88,8 +88,8 @@ function HeritageList() {
       ) : (
         <div className="text-center py-20 text-slate-400">
           <div className="text-5xl mb-4">🏛️</div>
-          <p className="text-lg font-medium">검색 결과가 없습니다.</p>
-          <p className="text-sm mt-1">다른 키워드나 지역을 선택해 보세요.</p>
+          <p className="text-lg font-medium">{locale === 'ja' ? '検索結果がありません。' : locale === 'en' ? 'No results found.' : locale === 'zh' ? '没有搜索结果。' : '검색 결과가 없습니다.'}</p>
+          <p className="text-sm mt-1">{locale === 'ja' ? '別のキーワードや地域を選んでみてください。' : locale === 'en' ? 'Try a different keyword or region.' : locale === 'zh' ? '请尝试其他关键词或地区。' : '다른 키워드나 지역을 선택해 보세요.'}</p>
         </div>
       )}
     </main>

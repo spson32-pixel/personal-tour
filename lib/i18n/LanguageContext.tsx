@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Locale = 'ko' | 'en' | 'zh';
+export type Locale = 'ko' | 'en' | 'zh' | 'ja';
 
 interface LanguageContextValue {
   locale: Locale;
@@ -16,7 +16,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem('locale') as Locale | null;
-    if (saved === 'ko' || saved === 'en' || saved === 'zh') setLocaleState(saved);
+    if (saved === 'ko' || saved === 'en' || saved === 'zh' || saved === 'ja') setLocaleState(saved);
   }, []);
 
   function setLocale(next: Locale) {
