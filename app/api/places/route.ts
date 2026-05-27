@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
 interface SiteQuery {
   name: string;
   city: string;
@@ -15,15 +13,13 @@ interface PlaceResult {
   error?: string;
 }
 
-async function searchPlace(name: string, city: string): Promise<PlaceResult> {
-  if (!API_KEY) return { error: 'API key not configured' };
-
+async function searchPlace(name: string, city: string, apiKey: string): Promise<PlaceResult> {
   const query = `${name} ${city} 한국`;
   const url = new URL('https://maps.googleapis.com/maps/api/place/textsearch/json');
   url.searchParams.set('query', query);
   url.searchParams.set('language', 'ko');
   url.searchParams.set('region', 'KR');
-  url.searchParams.set('key', API_KEY);
+  url.searchParams.set('key', apiKey);
 
   try {
     const res = await fetch(url.toString(), { cache: 'no-store' });
@@ -41,11 +37,7 @@ async function searchPlace(name: string, city: string): Promise<PlaceResult> {
 
     console.log(`[/api/places] "${name}" 좌표: lat=${lat?.toFixed(5)}, lng=${lng?.toFixed(5)}, 이름="${place.name}"`);
 
-    const result: PlaceResult = {
-      placeId: place.place_id,
-      lat,
-      lng,
-    };
+    const result: PlaceResult = { placeId: place.place_id, lat, lng };
 
     const photoRef: string | undefined = place.photos?.[0]?.photo_reference;
     if (photoRef) {
@@ -60,8 +52,11 @@ async function searchPlace(name: string, city: string): Promise<PlaceResult> {
 }
 
 export async function POST(req: NextRequest) {
-  if (!API_KEY) {
-    return NextResponse.json({ error: 'GOOGLE_MAPS_API_KEY not set' }, { status: 500 });
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+  if (!apiKey) {
+    console.error('[/api/places] NEXT_PUBLIC_GOOGLE_MAPS_API_KEY 미설정');
+    return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
   }
 
   let sites: SiteQuery[];
@@ -74,7 +69,7 @@ export async function POST(req: NextRequest) {
   }
 
   const results = await Promise.all(
-    sites.map(({ name, city }) => searchPlace(name, city))
+    sites.map(({ name, city }) => searchPlace(name, city, apiKey))
   );
 
   return NextResponse.json({ results });

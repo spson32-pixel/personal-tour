@@ -1,18 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
 export async function GET(req: NextRequest) {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   const ref = req.nextUrl.searchParams.get('ref');
 
-  if (!ref || !API_KEY) {
+  if (!ref || !apiKey) {
+    console.error('[/api/places/photo] ref=' + ref + ' apiKey=' + (apiKey ? '있음' : '없음'));
     return NextResponse.json({ error: 'Missing ref or API key' }, { status: 400 });
   }
 
   const url = new URL('https://maps.googleapis.com/maps/api/place/photo');
   url.searchParams.set('photo_reference', ref);
   url.searchParams.set('maxwidth', '800');
-  url.searchParams.set('key', API_KEY);
+  url.searchParams.set('key', apiKey);
 
   try {
     const res = await fetch(url.toString(), { redirect: 'follow' });

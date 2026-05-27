@@ -198,7 +198,16 @@ export default function HeritageMap({ sites }: HeritageMapProps) {
 
   // ─── 에러 / 로딩 상태 ──────────────────────────────────────
 
-  if (KEY_STATUS !== 'ok' || loadError) return null;
+  if (KEY_STATUS !== 'ok') {
+    console.error('[HeritageMap] API 키 없음 또는 플레이스홀더. status=' + KEY_STATUS + ' key=' + MASKED_KEY);
+    return null;
+  }
+
+  if (loadError) {
+    // 브라우저 콘솔(F12)에서 오류 메시지 확인 가능
+    console.error('[HeritageMap] Google Maps 로드 실패:', loadError.message);
+    return null;
+  }
 
   if (!isLoaded) {
     return (
