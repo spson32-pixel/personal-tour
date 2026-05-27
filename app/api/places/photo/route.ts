@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+function getServerReferer(): string {
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}/`;
+  return 'http://localhost:3000/';
+}
+
 export async function GET(req: NextRequest) {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const apiKey = process.env.GOOGLE_MAPS_SERVER_API_KEY ?? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   const ref = req.nextUrl.searchParams.get('ref');
 
   if (!ref || !apiKey) {
-    console.error('[/api/places/photo] ref=' + ref + ' apiKey=' + (apiKey ? '있음' : '없음'));
     return NextResponse.json({ error: 'Missing ref or API key' }, { status: 400 });
   }
 
@@ -15,7 +19,10 @@ export async function GET(req: NextRequest) {
   url.searchParams.set('key', apiKey);
 
   try {
-    const res = await fetch(url.toString(), { redirect: 'follow' });
+    const res = await fetch(url.toString(), {
+      redirect: 'follow',
+      headers: { 'Referer': getServerReferer() },
+    });
 
     if (!res.ok) {
       return NextResponse.json({ error: 'Photo fetch failed' }, { status: 502 });

@@ -19,6 +19,17 @@ interface RawPlace {
   vicinity?: string;
 }
 
+// Vercel server-to-server 요청에 Referer 헤더 추가 (HTTP referrer 제한 우회)
+function getServerReferer(): string {
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}/`;
+  return 'http://localhost:3000/';
+}
+
+// 서버 전용 키 → 없으면 공용 키 사용
+function getApiKey(): string | undefined {
+  return process.env.GOOGLE_MAPS_SERVER_API_KEY ?? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+}
+
 // ─── 좌표 취득 ────────────────────────────────────────────
 async function getCoords(name: string, city: string, apiKey: string): Promise<{ lat: number; lng: number } | null> {
   const url = new URL('https://maps.googleapis.com/maps/api/place/textsearch/json');
@@ -27,10 +38,16 @@ async function getCoords(name: string, city: string, apiKey: string): Promise<{ 
   url.searchParams.set('region', 'KR');
   url.searchParams.set('key', apiKey);
 
-  const res = await fetch(url.toString(), { cache: 'no-store' });
+  const res = await fetch(url.toString(), {
+    cache: 'no-store',
+    headers: { 'Referer': getServerReferer() },
+  });
   const data = await res.json();
 
   console.log(`[nearby-restaurants] coords "${name}" → ${data.status}`);
+  if (data.status === 'REQUEST_DENIED') {
+    console.error(`[nearby-restaurants] REQUEST_DENIED — error_message: ${data.error_message}`);
+  }
   if (data.status !== 'OK' || !data.results?.[0]?.geometry?.location) return null;
   const { lat, lng } = data.results[0].geometry.location;
   return { lat, lng };
@@ -52,7 +69,10 @@ async function nearbySearch(
   if (keyword) url.searchParams.set('keyword', keyword);
   url.searchParams.set('key', apiKey);
 
-  const res = await fetch(url.toString(), { cache: 'no-store' });
+  const res = await fetch(url.toString(), {
+    cache: 'no-store',
+    headers: { 'Referer': getServerReferer() },
+  });
   const data = await res.json();
   console.log(`[nearby-restaurants] nearbySearch radius=${radius}${keyword ? ` keyword=${keyword}` : ''} → ${data.status} (${data.results?.length ?? 0}건)`);
   return (data.results as RawPlace[]) ?? [];
@@ -119,10 +139,11 @@ async function fetchNearbyRestaurants(lat: number, lng: number, apiKey: string):
 
 // ─── Route Handler ────────────────────────────────────────
 export async function GET(req: NextRequest) {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const apiKey = getApiKey();
 
   if (!apiKey) {
-    return NextResponse.json({ error: 'NEXT_PUBLIC_GOOGLE_MAPS_API_KEY not set' }, { status: 500 });
+    console.error('[/api/nearby-restaurants] API 키 미설정');
+    return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
   }
 
   const { searchParams } = new URL(req.url);

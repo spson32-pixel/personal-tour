@@ -13,6 +13,17 @@ interface PlaceResult {
   error?: string;
 }
 
+// Vercel server-to-server 요청에 Referer 헤더 추가 (HTTP referrer 제한 우회)
+function getServerReferer(): string {
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}/`;
+  return 'http://localhost:3000/';
+}
+
+// 서버 전용 키 → 없으면 공용 키 사용
+function getApiKey(): string | undefined {
+  return process.env.GOOGLE_MAPS_SERVER_API_KEY ?? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+}
+
 async function searchPlace(name: string, city: string, apiKey: string): Promise<PlaceResult> {
   const query = `${name} ${city} 한국`;
   const url = new URL('https://maps.googleapis.com/maps/api/place/textsearch/json');
@@ -22,12 +33,18 @@ async function searchPlace(name: string, city: string, apiKey: string): Promise<
   url.searchParams.set('key', apiKey);
 
   try {
-    const res = await fetch(url.toString(), { cache: 'no-store' });
+    const res = await fetch(url.toString(), {
+      cache: 'no-store',
+      headers: { 'Referer': getServerReferer() },
+    });
     const data = await res.json();
 
     console.log(`[/api/places] "${name}" (${city}) → status=${data.status}, results=${data.results?.length ?? 0}`);
 
     if (data.status !== 'OK' || !data.results?.[0]) {
+      if (data.status === 'REQUEST_DENIED') {
+        console.error(`[/api/places] REQUEST_DENIED — Google API 키 제한 또는 Places API 미활성화. error_message: ${data.error_message}`);
+      }
       return { error: data.status ?? 'NO_RESULTS' };
     }
 
@@ -35,7 +52,7 @@ async function searchPlace(name: string, city: string, apiKey: string): Promise<
     const lat: number = place.geometry?.location?.lat;
     const lng: number = place.geometry?.location?.lng;
 
-    console.log(`[/api/places] "${name}" 좌표: lat=${lat?.toFixed(5)}, lng=${lng?.toFixed(5)}, 이름="${place.name}"`);
+    console.log(`[/api/places] "${name}" 좌표: lat=${lat?.toFixed(5)}, lng=${lng?.toFixed(5)}`);
 
     const result: PlaceResult = { placeId: place.place_id, lat, lng };
 
@@ -52,10 +69,10 @@ async function searchPlace(name: string, city: string, apiKey: string): Promise<
 }
 
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const apiKey = getApiKey();
 
   if (!apiKey) {
-    console.error('[/api/places] NEXT_PUBLIC_GOOGLE_MAPS_API_KEY 미설정');
+    console.error('[/api/places] API 키 미설정');
     return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
   }
 
